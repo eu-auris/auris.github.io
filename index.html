@@ -1,0 +1,152 @@
+---
+layout: default
+title: Home
+---
+{%- assign p = site.data.project -%}
+{%- assign r = site.data.recruitment -%}
+
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero__spiral" src="{{ '/assets/images/cochlea-spiral.svg' | relative_url }}" alt="" width="400" height="400">
+  <div class="container hero__inner">
+    <p class="eyebrow eyebrow--on-dark">{{ p.network_type }}</p>
+    <h1 id="hero-title" class="hero__title">
+      <span class="hero__acronym">{{ p.acronym }}</span>
+      <span class="hero__name">{{ p.full_name }}</span>
+    </h1>
+    <p class="hero__lead">{{ p.tagline }}</p>
+    <div class="hero__actions">
+      <a class="button button--light" href="{{ '/about/' | relative_url }}">Discover the project</a>
+      <a class="button button--ghost" href="{{ '/vacancies/' | relative_url }}">PhD positions {% include icon.html name="arrow" %}</a>
+    </div>
+    <p class="hero__eu">
+      <img src="{{ '/assets/images/eu/funded-by-the-eu-pos.png' | relative_url }}" width="1000" height="223" alt="Funded by the European Union">
+    </p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="intro-title">
+  <div class="container intro">
+    <div>
+      <p class="eyebrow">About the network</p>
+      <h2 id="intro-title" class="section__title">Training experts in robot-assisted inner-ear surgery</h2>
+      <div class="prose">{% include v.html value=p.intro %}</div>
+      <p><a class="link-arrow" href="{{ '/about/' | relative_url }}">Objectives and work packages {% include icon.html name="arrow" %}</a></p>
+    </div>
+    <dl class="key-facts" aria-label="Key facts">
+      <div class="key-facts__item"><dt>{% include icon.html name="users" %}Doctoral candidates</dt><dd>{% include v.html value=p.number_of_dcs %}</dd></div>
+      <div class="key-facts__item"><dt>{% include icon.html name="building" %}Beneficiaries</dt><dd>{% include v.html value=p.number_of_beneficiaries %}</dd></div>
+      <div class="key-facts__item"><dt>{% include icon.html name="globe" %}Associated partners</dt><dd>{% include v.html value=p.number_of_associated_partners %}</dd></div>
+      <div class="key-facts__item"><dt>{% include icon.html name="calendar" %}Start date</dt><dd>{% include v.html value=p.start_date %}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="areas-title">
+  <div class="container">
+    <p class="eyebrow">Scope</p>
+    <h2 id="areas-title" class="section__title">Research areas</h2>
+    <ul class="grid grid--4" role="list">
+      {%- for area in site.data.research_areas %}
+      <li class="card feature">
+        <span class="feature__icon">{% include icon.html name=area.icon %}</span>
+        <h3 class="feature__title">{% include v.html value=area.title %}</h3>
+        <p>{% include v.html value=area.description %}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dcs-title">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Doctoral projects</p>
+        <h2 id="dcs-title" class="section__title">Doctoral candidates</h2>
+      </div>
+      <a class="link-arrow" href="{{ '/doctoral-candidates/' | relative_url }}">All projects {% include icon.html name="arrow" %}</a>
+    </div>
+    <div class="grid grid--3">
+      {%- for dc in site.data.doctoral_candidates limit: 3 %}
+      {% include dc-card.html dc=dc compact=true %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--compact" aria-labelledby="hiring-title">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2 id="hiring-title" class="cta-banner__title">
+          {%- if r.status == "open" -%}We are hiring!{%- elsif r.status == "closed" -%}Recruitment is closed{%- else -%}PhD positions coming soon{%- endif -%}
+        </h2>
+        <p>{{ r.headline }}</p>
+      </div>
+      <a class="button button--light" href="{{ '/vacancies/' | relative_url }}">Vacancies &amp; eligibility</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="news-title">
+  <div class="container two-col">
+    <div>
+      <div class="section__head">
+        <h2 id="news-title" class="section__title">Latest news</h2>
+        <a class="link-arrow" href="{{ '/news/' | relative_url }}">All news {% include icon.html name="arrow" %}</a>
+      </div>
+      {%- assign news = site.data.news | sort: "date" | reverse %}
+      <ul class="news-list" role="list">
+        {%- for item in news limit: 3 %}
+        <li class="news-list__item">
+          <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: "%-d %B %Y" }}</time>
+          <h3>{%- if item.url != "" -%}<a href="{{ item.url }}">{{ item.title }}</a>{%- else -%}{% include v.html value=item.title %}{%- endif -%}</h3>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <div class="section__head">
+        <h2 id="events-title" class="section__title">Upcoming events</h2>
+        <a class="link-arrow" href="{{ '/training/' | relative_url }}">Training &amp; events {% include icon.html name="arrow" %}</a>
+      </div>
+      {%- assign today = site.time | date: "%Y%m%d" | plus: 0 %}
+      <ul class="event-list" role="list">
+        {%- assign shown = 0 %}
+        {%- for ev in site.data.events %}
+        {%- if shown < 3 %}
+        {%- if ev.date == "" or ev.date == nil %}
+        {% include event-item.html event=ev %}{% assign shown = shown | plus: 1 %}
+        {%- else %}
+        {%- assign evd = ev.date | date: "%Y%m%d" | plus: 0 %}
+        {%- if evd >= today %}{% include event-item.html event=ev %}{% assign shown = shown | plus: 1 %}{% endif %}
+        {%- endif %}
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="partners-title">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Consortium</p>
+        <h2 id="partners-title" class="section__title">Our partners</h2>
+      </div>
+      <a class="link-arrow" href="{{ '/consortium/' | relative_url }}">The consortium {% include icon.html name="arrow" %}</a>
+    </div>
+    <ul class="logo-strip" role="list">
+      {%- for pt in site.data.partners %}
+      <li class="logo-strip__item">
+        {%- if pt.logo != "" -%}
+        <img src="{{ pt.logo | relative_url }}" alt="{{ pt.name }}" loading="lazy">
+        {%- else -%}
+        {% include v.html value=pt.name %}
+        {%- endif -%}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

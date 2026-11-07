@@ -1,0 +1,25 @@
+{%- comment -%}
+  Mandatory EU funding acknowledgement (Horizon Europe / MSCA).
+  The official emblem comes from the European Commission's download centre:
+  https://ec.europa.eu/regional_policy/information-sources/logo-download-center_en
+  Rules: keep the emblem unaltered, on a white background, at least as large as
+  other logos shown on the page, and always together with the funding statement.
+{%- endcomment -%}
+{%- assign p = site.data.project -%}
+<section class="eu-funding" aria-labelledby="eu-funding-title">
+  <h2 id="eu-funding-title" class="visually-hidden">EU funding acknowledgement</h2>
+  <div class="eu-funding__emblem">
+    <img src="{{ '/assets/images/eu/funded-by-the-eu-pos.png' | relative_url }}" width="1000" height="223" alt="Funded by the European Union" loading="lazy">
+  </div>
+  <div class="eu-funding__text">
+    <p>
+      {{ p.acronym }} has received funding from the European Union’s Horizon Europe research and innovation
+      programme under the Marie Skłodowska-Curie grant agreement No&nbsp;{% include v.html value=p.grant_agreement %}.
+    </p>
+    <p class="eu-funding__disclaimer">
+      Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not
+      necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the
+      European Union nor the granting authority can be held responsible for them.
+    </p>
+  </div>
+</section>

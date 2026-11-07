@@ -1,0 +1,54 @@
+# -----------------------------------------------------------------------------
+# Key project facts. Every value starting with "TODO" is a placeholder: it is
+# shown on the site with a yellow dashed outline until you replace it.
+# -----------------------------------------------------------------------------
+
+acronym: AURIS
+full_name: Advanced Ultra-precise Robotic Inner-ear Surgery
+network_type: Marie Skłodowska-Curie Actions (MSCA) Doctoral Network
+programme: Horizon Europe — Marie Skłodowska-Curie Actions
+
+# One-sentence pitch used in the hero and in the footer.
+tagline: >-
+  A European doctoral network training the next generation of researchers in
+  robot-assisted inner-ear surgery.
+
+# Longer introduction shown on the home page (Markdown allowed).
+intro: >-
+  TODO: write a 3–5 sentence introduction to AURIS — the clinical problem, why
+  ultra-precise robotics and simulation matter for inner-ear surgery, and what
+  the network will deliver.
+
+call: "TODO: call identifier (e.g. HORIZON-MSCA-20XX-DN-01)"
+grant_agreement: "TODO: grant agreement number"
+start_date: "TODO: start date"
+end_date: "TODO: end date"
+duration: "TODO: duration (months)"
+eu_contribution: "TODO: EU contribution (€)"
+number_of_dcs: "TODO: number of doctoral candidates"
+number_of_beneficiaries: "TODO: number of beneficiaries"
+number_of_associated_partners: "TODO: number of associated partners"
+
+# Link to the CORDIS fact sheet once the project is listed (leave empty to hide).
+cordis_url: ""
+
+coordinator:
+  name: "TODO: coordinator name"
+  institution: "TODO: coordinating institution"
+  country: "TODO: country"
+
+project_manager:
+  name: "TODO: project manager name"
+  institution: "TODO: institution"
+
+contact:
+  email: "TODO: contact email"
+  address: "TODO: postal address"
+
+# Leave a value empty ("") to hide the corresponding icon/link.
+social:
+  linkedin: ""
+  bluesky: ""
+  x: ""
+  youtube: ""
+  github: ""

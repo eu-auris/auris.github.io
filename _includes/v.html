@@ -1,0 +1,6 @@
+{%- comment -%}
+  Prints a data value; placeholders containing "TODO" get a visible outline.
+  Usage: {% include v.html value=page.something %}
+{%- endcomment -%}
+{%- assign _v = include.value | append: "" | strip -%}
+{%- if _v contains "TODO" -%}<span class="todo">{{ _v }}</span>{%- else -%}{{ _v }}{%- endif -%}

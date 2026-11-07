@@ -1,0 +1,49 @@
+{%- assign p = site.data.project -%}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <img class="footer-logo" src="{{ '/assets/images/auris-logo-transparent.png' | relative_url }}" width="704" height="228" alt="AURIS" loading="lazy">
+        <p class="footer-tagline">{{ p.full_name }} — {{ p.network_type }}.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Footer">
+        <h2 class="footer-title">Explore</h2>
+        <ul class="footer-links">
+          {%- for item in site.data.navigation %}
+          {%- unless item.url == "/" %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {%- endunless %}
+          {%- endfor %}
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-title">Contact</h2>
+        <ul class="footer-contact">
+          <li>{% include icon.html name="mail" %}
+            {%- if p.contact.email contains "@" -%}
+            <a href="mailto:{{ p.contact.email }}">{{ p.contact.email }}</a>
+            {%- else -%}
+            {% include v.html value=p.contact.email %}
+            {%- endif -%}
+          </li>
+          <li>{% include icon.html name="pin" %}<span>{% include v.html value=p.contact.address %}</span></li>
+        </ul>
+        {% include social.html %}
+      </div>
+    </div>
+
+    {% include eu-funding.html %}
+
+    <div class="footer-bottom">
+      <p>© {{ site.time | date: "%Y" }} {{ p.acronym }} consortium.</p>
+      <ul class="footer-legal">
+        <li><a href="{{ '/privacy/' | relative_url }}">Privacy &amp; legal notice</a></li>
+        {%- if p.cordis_url != "" %}
+        <li><a href="{{ p.cordis_url }}" rel="noopener">CORDIS fact sheet</a></li>
+        {%- endif %}
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,62 @@
+# -----------------------------------------------------------------------------
+# Consortium members.
+#   type: beneficiary | associated     (associated = associated partner)
+#   logo: path under /assets/images/partners/ (optional; initials are shown otherwise)
+#   sector: academic | non-academic
+# Duplicate a block for each organisation.
+# -----------------------------------------------------------------------------
+- short: "TODO"
+  name: "TODO: beneficiary name (coordinator)"
+  type: beneficiary
+  coordinator: true
+  sector: academic
+  city: "TODO: city"
+  country: "TODO: country"
+  url: ""
+  logo: ""
+  contact: "TODO: principal investigator"
+  role: "TODO: role in the network"
+
+- short: "TODO"
+  name: "TODO: beneficiary name"
+  type: beneficiary
+  sector: academic
+  city: "TODO: city"
+  country: "TODO: country"
+  url: ""
+  logo: ""
+  contact: "TODO: principal investigator"
+  role: "TODO: role in the network"
+
+- short: "TODO"
+  name: "TODO: beneficiary name"
+  type: beneficiary
+  sector: non-academic
+  city: "TODO: city"
+  country: "TODO: country"
+  url: ""
+  logo: ""
+  contact: "TODO: principal investigator"
+  role: "TODO: role in the network"
+
+- short: "TODO"
+  name: "TODO: associated partner name"
+  type: associated
+  sector: non-academic
+  city: "TODO: city"
+  country: "TODO: country"
+  url: ""
+  logo: ""
+  contact: "TODO: contact person"
+  role: "TODO: e.g. hosts secondments, co-supervision"
+
+- short: "TODO"
+  name: "TODO: associated partner name"
+  type: associated
+  sector: academic
+  city: "TODO: city"
+  country: "TODO: country"
+  url: ""
+  logo: ""
+  contact: "TODO: contact person"
+  role: "TODO: e.g. PhD awarding institution"

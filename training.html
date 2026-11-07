@@ -1,0 +1,65 @@
+---
+layout: page
+title: Training & Events
+permalink: /training/
+lead: The AURIS training programme combines research training through each doctoral project with network-wide events, secondments and transferable-skills courses.
+---
+{%- assign today = site.time | date: "%Y%m%d" | plus: 0 -%}
+
+<section class="section" aria-labelledby="programme-title">
+  <div class="container">
+    <h2 id="programme-title" class="section__title">Training programme</h2>
+    <ul class="grid grid--3" role="list">
+      <li class="card feature">
+        <span class="feature__icon">{% include icon.html name="training" %}</span>
+        <h3 class="feature__title">Research training</h3>
+        <p>Training through research in each doctoral project, at the host organisation and under co-supervision. <span class="todo">TODO: describe local training and PhD-school courses.</span></p>
+      </li>
+      <li class="card feature">
+        <span class="feature__icon">{% include icon.html name="users" %}</span>
+        <h3 class="feature__title">Network-wide events</h3>
+        <p>Schools, workshops and network meetings open to all doctoral candidates. <span class="todo">TODO: list the planned network-wide training events.</span></p>
+      </li>
+      <li class="card feature">
+        <span class="feature__icon">{% include icon.html name="globe" %}</span>
+        <h3 class="feature__title">Secondments</h3>
+        <p>Stays at other academic and non-academic organisations of the network. <span class="todo">TODO: describe the secondment plan.</span></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="upcoming-title">
+  <div class="container two-col">
+    <div>
+      <h2 id="upcoming-title" class="section__title">Upcoming events</h2>
+      {%- assign upcoming = site.data.events | sort: "date" %}
+      <ul class="event-list" role="list">
+        {%- assign n = 0 %}
+        {%- for ev in upcoming %}
+        {%- if ev.date == "" or ev.date == nil %}
+        {% include event-item.html event=ev full=true %}{% assign n = n | plus: 1 %}
+        {%- else %}
+        {%- assign evd = ev.date | date: "%Y%m%d" | plus: 0 %}
+        {%- if evd >= today %}{% include event-item.html event=ev full=true %}{% assign n = n | plus: 1 %}{% endif %}
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+      {%- if n == 0 %}<p class="empty">No upcoming events at the moment.</p>{% endif %}
+    </div>
+    <div>
+      <h2 id="past-title" class="section__title">Past events</h2>
+      {%- assign past = site.data.events | sort: "date" | reverse %}
+      <ul class="event-list" role="list">
+        {%- assign m = 0 %}
+        {%- for ev in past %}
+        {%- if ev.date != "" and ev.date != nil %}
+        {%- assign evd = ev.date | date: "%Y%m%d" | plus: 0 %}
+        {%- if evd < today %}{% include event-item.html event=ev full=true %}{% assign m = m | plus: 1 %}{% endif %}
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+      {%- if m == 0 %}<p class="empty">Past events will be listed here.</p>{% endif %}
+    </div>
+  </div>
+</section>

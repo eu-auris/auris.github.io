@@ -1,0 +1,10 @@
+[workspace]
+authors = ["Yinoussa Adagolodjo  <yinoussa.adagolodjo2@univ-lille.fr>"]
+channels = ["conda-forge"]
+name = "auris"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]

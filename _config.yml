@@ -1,0 +1,41 @@
+# -----------------------------------------------------------------------------
+# AURIS website — Jekyll configuration (built natively by GitHub Pages)
+# Project facts (grant number, dates, coordinator…) live in _data/project.yml.
+# Restart `jekyll serve` after editing this file (it is not hot-reloaded).
+# -----------------------------------------------------------------------------
+
+title: AURIS
+long_title: Advanced Ultra-precise Robotic Inner-ear Surgery
+description: >-
+  AURIS — Advanced Ultra-precise Robotic Inner-ear Surgery — is a Marie
+  Skłodowska-Curie Actions (MSCA) Doctoral Network funded by the European Union.
+lang: en
+
+# The repository scientific-projects/auris.github.io is a *project* site, so it is
+# served at https://scientific-projects.github.io/auris.github.io/
+# If you later add a custom domain (CNAME file), set `url` to it and `baseurl` to "".
+url: "https://scientific-projects.github.io"
+baseurl: "/auris.github.io"
+
+permalink: pretty
+markdown: kramdown
+timezone: Europe/Paris
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+logo: /assets/images/auris-logo.png
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - pixi.toml
+  - pixi.lock
+  - .pixi
+  - scripts
+  - vendor
+  - .bundle
+  - .claude
+  - node_modules

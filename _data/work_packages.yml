@@ -1,0 +1,17 @@
+# Work packages (About page). Duplicate a block to add a WP.
+# `lead` should match the `short` name of a partner in partners.yml.
+- id: WP1
+  title: "TODO: WP1 title"
+  lead: "TODO: lead beneficiary"
+  description: "TODO: objectives of the work package."
+  dcs: []          # e.g. [DC1, DC2]
+- id: WP2
+  title: "TODO: WP2 title"
+  lead: "TODO: lead beneficiary"
+  description: "TODO: objectives of the work package."
+  dcs: []
+- id: WP3
+  title: "TODO: WP3 title"
+  lead: "TODO: lead beneficiary"
+  description: "TODO: objectives of the work package."
+  dcs: []

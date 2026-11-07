@@ -1,0 +1,47 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+lead: Questions about the project, the doctoral positions or collaboration opportunities? Get in touch.
+---
+{%- assign p = site.data.project -%}
+<section class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <h2 id="contact-title" class="visually-hidden">Contact details</h2>
+    <div class="grid grid--3">
+      <div class="card contact-card">
+        <span class="feature__icon">{% include icon.html name="mail" %}</span>
+        <h3>General enquiries</h3>
+        <p>
+          {%- if p.contact.email contains "@" -%}
+          <a href="mailto:{{ p.contact.email }}">{{ p.contact.email }}</a>
+          {%- else -%}
+          {% include v.html value=p.contact.email %}
+          {%- endif -%}
+        </p>
+      </div>
+      <div class="card contact-card">
+        <span class="feature__icon">{% include icon.html name="users" %}</span>
+        <h3>Coordinator</h3>
+        <p>{% include v.html value=p.coordinator.name %}<br>{% include v.html value=p.coordinator.institution %}<br>{% include v.html value=p.coordinator.country %}</p>
+      </div>
+      <div class="card contact-card">
+        <span class="feature__icon">{% include icon.html name="building" %}</span>
+        <h3>Project management</h3>
+        <p>{% include v.html value=p.project_manager.name %}<br>{% include v.html value=p.project_manager.institution %}</p>
+      </div>
+    </div>
+
+    <div class="card contact-address">
+      <span class="feature__icon">{% include icon.html name="pin" %}</span>
+      <div>
+        <h3>Postal address</h3>
+        <p>{% include v.html value=p.contact.address %}</p>
+      </div>
+    </div>
+
+    <p class="small">For questions about a specific doctoral position, please contact the supervisors listed on the
+      <a href="{{ '/doctoral-candidates/' | relative_url }}">Doctoral Candidates</a> page.</p>
+    {% include social.html %}
+  </div>
+</section>

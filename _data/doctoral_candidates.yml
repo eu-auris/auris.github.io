@@ -1,0 +1,54 @@
+# -----------------------------------------------------------------------------
+# One entry per doctoral candidate (DC) project. Duplicate a block to add a DC.
+#   status: open | upcoming | recruited | closed
+#     - open      → listed on the Vacancies page with an "Apply" button
+#     - recruited → shows the candidate name/photo when provided
+#   photo: path under /assets/images/dcs/ (optional)
+# -----------------------------------------------------------------------------
+- id: DC1
+  title: "TODO: DC1 project title"
+  status: upcoming
+  host: "TODO: host institution"
+  country: "TODO: country"
+  phd_awarding: "TODO: PhD-awarding institution"
+  supervisors: ["TODO: main supervisor", "TODO: co-supervisor"]
+  secondments: ["TODO: secondment 1", "TODO: secondment 2"]
+  work_package: "TODO: WP"
+  start: "TODO: planned start"
+  duration: "TODO: duration (months)"
+  objectives: "TODO: 2–3 sentences on the research objectives."
+  candidate: ""
+  photo: ""
+  apply_url: ""
+
+- id: DC2
+  title: "TODO: DC2 project title"
+  status: upcoming
+  host: "TODO: host institution"
+  country: "TODO: country"
+  phd_awarding: "TODO: PhD-awarding institution"
+  supervisors: ["TODO: main supervisor", "TODO: co-supervisor"]
+  secondments: ["TODO: secondment 1", "TODO: secondment 2"]
+  work_package: "TODO: WP"
+  start: "TODO: planned start"
+  duration: "TODO: duration (months)"
+  objectives: "TODO: 2–3 sentences on the research objectives."
+  candidate: ""
+  photo: ""
+  apply_url: ""
+
+- id: DC3
+  title: "TODO: DC3 project title"
+  status: upcoming
+  host: "TODO: host institution"
+  country: "TODO: country"
+  phd_awarding: "TODO: PhD-awarding institution"
+  supervisors: ["TODO: main supervisor", "TODO: co-supervisor"]
+  secondments: ["TODO: secondment 1", "TODO: secondment 2"]
+  work_package: "TODO: WP"
+  start: "TODO: planned start"
+  duration: "TODO: duration (months)"
+  objectives: "TODO: 2–3 sentences on the research objectives."
+  candidate: ""
+  photo: ""
+  apply_url: ""

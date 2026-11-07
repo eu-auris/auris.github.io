@@ -1,0 +1,27 @@
+# -----------------------------------------------------------------------------
+# Recruitment settings (Vacancies page + "We are hiring" banner on the home page).
+#   status: upcoming | open | closed
+# Individual positions come from doctoral_candidates.yml (status: open/upcoming).
+# -----------------------------------------------------------------------------
+status: upcoming
+headline: "Doctoral candidate positions will be advertised soon."
+application_url: ""          # e.g. link to the application portal or EURAXESS
+euraxess_url: ""
+deadline: "TODO: application deadline"
+recruitment_date: "TODO: reference recruitment date used for eligibility checks"
+guide_pdf: ""                # e.g. /assets/docs/auris-recruitment-guide.pdf
+
+# Key dates of the selection process. Add/remove rows freely.
+timeline:
+  - when: "TODO: date"
+    what: "Application window opens"
+  - when: "TODO: date"
+    what: "Application deadline"
+  - when: "TODO: date"
+    what: "Shortlisting and notification of candidates"
+  - when: "TODO: date"
+    what: "Interviews"
+  - when: "TODO: date"
+    what: "Final decision and offers"
+  - when: "TODO: date"
+    what: "Expected start of the doctoral contracts"

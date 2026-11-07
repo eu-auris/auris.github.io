@@ -1,0 +1,30 @@
+{%- assign ev = include.event -%}
+<li class="event">
+  <div class="event__date" aria-hidden="true">
+    {%- if ev.date == "" or ev.date == nil -%}
+    <span class="event__tba">TBA</span>
+    {%- else -%}
+    <span class="event__day">{{ ev.date | date: "%-d" }}</span>
+    <span class="event__month">{{ ev.date | date: "%b %Y" }}</span>
+    {%- endif -%}
+  </div>
+  <div class="event__body">
+    <p class="event__type">{{ ev.type }}</p>
+    <h3 class="event__title">
+      {%- if ev.url != "" -%}<a href="{{ ev.url }}">{{ ev.title }}</a>{%- else -%}{% include v.html value=ev.title %}{%- endif -%}
+    </h3>
+    <p class="event__meta">
+      {%- if ev.date != "" and ev.date != nil -%}
+      <span class="visually-hidden">Date: </span>
+      <time datetime="{{ ev.date | date: '%Y-%m-%d' }}">{{ ev.date | date: "%-d %B %Y" }}</time>
+      {%- if ev.end_date != "" and ev.end_date != nil %} – <time datetime="{{ ev.end_date | date: '%Y-%m-%d' }}">{{ ev.end_date | date: "%-d %B %Y" }}</time>{% endif %} ·
+      {%- else -%}
+      Date to be announced ·
+      {%- endif %}
+      {% include v.html value=ev.location %}
+    </p>
+    {%- if include.full %}
+    <p>{% include v.html value=ev.description %}</p>
+    {%- endif %}
+  </div>
+</li>

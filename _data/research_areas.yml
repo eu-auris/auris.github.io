@@ -1,0 +1,15 @@
+# Research areas shown on the home and About pages.
+# `icon` is one of: robot, simulation, imaging, ear, clinic, ai, sensor, training
+# The examples in brackets are only suggestions — replace with the real themes.
+- title: "TODO: research area 1 (e.g. robot design & control)"
+  icon: robot
+  description: "TODO: short description."
+- title: "TODO: research area 2 (e.g. simulation & modelling)"
+  icon: simulation
+  description: "TODO: short description."
+- title: "TODO: research area 3 (e.g. imaging & navigation)"
+  icon: imaging
+  description: "TODO: short description."
+- title: "TODO: research area 4 (e.g. clinical translation)"
+  icon: clinic
+  description: "TODO: short description."

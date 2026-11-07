@@ -1,0 +1,94 @@
+---
+layout: page
+title: About
+permalink: /about/
+lead: The vision, objectives, research areas and work packages of the AURIS Doctoral Network.
+---
+{%- assign p = site.data.project -%}
+
+<section class="section" aria-labelledby="vision-title">
+  <div class="container two-col two-col--wide-left">
+    <div>
+      <h2 id="vision-title" class="section__title">Vision</h2>
+      <div class="prose">
+        <p>{% include v.html value=p.intro %}</p>
+        <p>
+          As a {{ p.network_type }}, {{ p.acronym }} combines individual doctoral research projects with a joint
+          training programme, secondments between partners, and network-wide events for its doctoral candidates.
+        </p>
+      </div>
+    </div>
+    <section class="card fact-sheet" aria-labelledby="factsheet-title">
+      <h2 id="factsheet-title" class="fact-sheet__title">Fact sheet</h2>
+      <dl class="meta-list">
+        <div><dt>Full name</dt><dd>{{ p.full_name }}</dd></div>
+        <div><dt>Programme</dt><dd>{{ p.programme }}</dd></div>
+        <div><dt>Call</dt><dd>{% include v.html value=p.call %}</dd></div>
+        <div><dt>Grant agreement</dt><dd>{% include v.html value=p.grant_agreement %}</dd></div>
+        <div><dt>Coordinator</dt><dd>{% include v.html value=p.coordinator.name %}, {% include v.html value=p.coordinator.institution %}</dd></div>
+        <div><dt>Duration</dt><dd>{% include v.html value=p.start_date %} – {% include v.html value=p.end_date %}</dd></div>
+        <div><dt>EU contribution</dt><dd>{% include v.html value=p.eu_contribution %}</dd></div>
+        <div><dt>Doctoral candidates</dt><dd>{% include v.html value=p.number_of_dcs %}</dd></div>
+      </dl>
+      {%- if p.cordis_url != "" %}
+      <p><a class="link-arrow" href="{{ p.cordis_url }}" rel="noopener">CORDIS fact sheet {% include icon.html name="external" %}</a></p>
+      {%- endif %}
+    </section>
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="objectives-title">
+  <div class="container">
+    <h2 id="objectives-title" class="section__title">Objectives</h2>
+    <ol class="grid grid--2 objectives" role="list">
+      {%- for o in site.data.objectives %}
+      <li class="card objective">
+        <span class="objective__num" aria-hidden="true">{{ forloop.index }}</span>
+        <div>
+          <h3 class="objective__title">{% include v.html value=o.title %}</h3>
+          <p>{% include v.html value=o.description %}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="areas-title">
+  <div class="container">
+    <h2 id="areas-title" class="section__title">Research areas</h2>
+    <ul class="grid grid--4" role="list">
+      {%- for area in site.data.research_areas %}
+      <li class="card feature">
+        <span class="feature__icon">{% include icon.html name=area.icon %}</span>
+        <h3 class="feature__title">{% include v.html value=area.title %}</h3>
+        <p>{% include v.html value=area.description %}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="wp-title">
+  <div class="container">
+    <h2 id="wp-title" class="section__title">Work packages</h2>
+    <ul class="wp-list" role="list">
+      {%- for wp in site.data.work_packages %}
+      <li class="card wp">
+        <div class="wp__id">{{ wp.id }}</div>
+        <div class="wp__body">
+          <h3 class="wp__title">{% include v.html value=wp.title %}</h3>
+          <p>{% include v.html value=wp.description %}</p>
+          <p class="wp__meta">
+            <span class="meta-label">Lead:</span> {% include v.html value=wp.lead %}
+            {%- if wp.dcs and wp.dcs.size > 0 %}
+            · <span class="meta-label">Doctoral projects:</span>
+            {% for d in wp.dcs %}<a href="{{ '/doctoral-candidates/' | relative_url }}#{{ d | downcase }}">{{ d }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
+            {%- endif %}
+          </p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

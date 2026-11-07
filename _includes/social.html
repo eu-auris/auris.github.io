@@ -1,0 +1,10 @@
+{%- assign s = site.data.project.social -%}
+{%- if s.linkedin != "" or s.bluesky != "" or s.x != "" or s.youtube != "" or s.github != "" -%}
+<ul class="social-links">
+  {%- if s.linkedin != "" %}<li><a class="icon-button" href="{{ s.linkedin }}" rel="noopener" aria-label="AURIS on LinkedIn">{% include icon.html name="linkedin" %}</a></li>{% endif %}
+  {%- if s.bluesky != "" %}<li><a class="icon-button" href="{{ s.bluesky }}" rel="noopener" aria-label="AURIS on Bluesky">{% include icon.html name="globe" %}</a></li>{% endif %}
+  {%- if s.x != "" %}<li><a class="icon-button" href="{{ s.x }}" rel="noopener" aria-label="AURIS on X">{% include icon.html name="globe" %}</a></li>{% endif %}
+  {%- if s.youtube != "" %}<li><a class="icon-button" href="{{ s.youtube }}" rel="noopener" aria-label="AURIS on YouTube">{% include icon.html name="video" %}</a></li>{% endif %}
+  {%- if s.github != "" %}<li><a class="icon-button" href="{{ s.github }}" rel="noopener" aria-label="AURIS on GitHub">{% include icon.html name="github" %}</a></li>{% endif %}
+</ul>
+{%- endif -%}

@@ -1,0 +1,30 @@
+{%- assign pt = include.partner -%}
+<li class="card partner-card">
+  <div class="partner-card__logo">
+    {%- if pt.logo != "" %}
+    <img src="{{ pt.logo | relative_url }}" alt="{{ pt.name }} logo" loading="lazy">
+    {%- else %}
+    <span class="partner-card__initials" aria-hidden="true">{{ pt.short | replace: "TODO", "?" }}</span>
+    {%- endif %}
+  </div>
+  <div class="partner-card__body">
+    <h3 class="partner-card__name">
+      {%- if pt.url != "" -%}
+      <a href="{{ pt.url }}" rel="noopener">{{ pt.name }}</a>
+      {%- else -%}
+      {% include v.html value=pt.name %}
+      {%- endif -%}
+    </h3>
+    <p class="partner-card__place">{% include icon.html name="pin" %}<span>{% include v.html value=pt.city %}, {% include v.html value=pt.country %}</span></p>
+    <p class="partner-card__tags">
+      {%- if pt.coordinator %}<span class="badge badge--coordinator">Coordinator</span>{% endif %}
+      <span class="badge">{% if pt.sector == "academic" %}Academic{% else %}Non-academic{% endif %}</span>
+    </p>
+    {%- if include.full %}
+    <dl class="meta-list meta-list--compact">
+      <div><dt>Contact</dt><dd>{% include v.html value=pt.contact %}</dd></div>
+      <div><dt>Role</dt><dd>{% include v.html value=pt.role %}</dd></div>
+    </dl>
+    {%- endif %}
+  </div>
+</li>

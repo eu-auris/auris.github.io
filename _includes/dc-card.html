@@ -1,0 +1,45 @@
+{%- assign dc = include.dc -%}
+<article class="card dc-card" id="{{ dc.id | downcase }}">
+  <header class="dc-card__head">
+    <span class="dc-card__id">{{ dc.id }}</span>
+    <span class="badge badge--{{ dc.status }}">
+      {%- case dc.status -%}
+      {%- when "open" -%}Position open
+      {%- when "recruited" -%}Recruited
+      {%- when "closed" -%}Closed
+      {%- else -%}Opening soon
+      {%- endcase -%}
+    </span>
+  </header>
+  <h3 class="dc-card__title">{% include v.html value=dc.title %}</h3>
+
+  {%- if dc.status == "recruited" and dc.candidate != "" %}
+  <div class="dc-card__person">
+    {%- if dc.photo != "" %}
+    <img src="{{ dc.photo | relative_url }}" alt="" width="64" height="64" loading="lazy">
+    {%- endif %}
+    <p><span class="meta-label">Doctoral candidate</span> {{ dc.candidate }}</p>
+  </div>
+  {%- endif %}
+
+  <dl class="meta-list">
+    <div><dt>Host</dt><dd>{% include v.html value=dc.host %}{% if dc.country != "" %} ({% include v.html value=dc.country %}){% endif %}</dd></div>
+    {%- unless include.compact %}
+    <div><dt>PhD awarded by</dt><dd>{% include v.html value=dc.phd_awarding %}</dd></div>
+    {%- assign sup = dc.supervisors | join: ", " -%}
+    {%- assign sec = dc.secondments | join: ", " %}
+    <div><dt>Supervisors</dt><dd>{% include v.html value=sup %}</dd></div>
+    <div><dt>Secondments</dt><dd>{% include v.html value=sec %}</dd></div>
+    <div><dt>Work package</dt><dd>{% include v.html value=dc.work_package %}</dd></div>
+    <div><dt>Start / duration</dt><dd>{% include v.html value=dc.start %} · {% include v.html value=dc.duration %}</dd></div>
+    {%- endunless %}
+  </dl>
+
+  {%- if include.full %}
+  <p class="dc-card__text">{% include v.html value=dc.objectives %}</p>
+  {%- endif %}
+
+  {%- if dc.status == "open" and dc.apply_url != "" %}
+  <p class="dc-card__cta"><a class="button button--small" href="{{ dc.apply_url }}" rel="noopener">Apply for {{ dc.id }} {% include icon.html name="arrow" %}</a></p>
+  {%- endif %}
+</article>

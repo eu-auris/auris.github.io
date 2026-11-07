@@ -1,0 +1,32 @@
+# -----------------------------------------------------------------------------
+# Training & events. Dates use YYYY-MM-DD. Leave `date` empty ("") for events
+# that are planned but not yet scheduled ("To be announced").
+#   type: network-wide training | summer school | workshop | conference | meeting | outreach
+# Upcoming/past is computed at build time (GitHub Pages rebuilds on every push).
+# -----------------------------------------------------------------------------
+- title: "TODO: kick-off meeting"
+  type: meeting
+  date: ""
+  end_date: ""
+  location: "TODO: location"
+  host: "TODO: host partner"
+  description: "TODO: short description."
+  url: ""
+
+- title: "TODO: network-wide training event 1"
+  type: network-wide training
+  date: ""
+  end_date: ""
+  location: "TODO: location"
+  host: "TODO: host partner"
+  description: "TODO: topics covered (scientific and transferable skills)."
+  url: ""
+
+- title: "TODO: summer school"
+  type: summer school
+  date: ""
+  end_date: ""
+  location: "TODO: location"
+  host: "TODO: host partner"
+  description: "TODO: short description."
+  url: ""

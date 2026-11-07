@@ -1,0 +1,97 @@
+---
+layout: page
+title: Vacancies
+permalink: /vacancies/
+lead: AURIS recruits doctoral candidates (DCs) under the rules of the Marie Skłodowska-Curie Actions. Read the eligibility criteria before you apply.
+---
+{%- assign r = site.data.recruitment -%}
+{%- assign open_dcs = site.data.doctoral_candidates | where: "status", "open" -%}
+{%- assign upcoming_dcs = site.data.doctoral_candidates | where: "status", "upcoming" -%}
+
+<section class="section" aria-labelledby="status-title">
+  <div class="container">
+    <div class="status-banner status-banner--{{ r.status }}" role="status">
+      <h2 id="status-title" class="status-banner__title">
+        {%- case r.status -%}
+        {%- when "open" -%}Applications are open
+        {%- when "closed" -%}Applications are closed
+        {%- else -%}Positions will open soon
+        {%- endcase -%}
+      </h2>
+      <p>{{ r.headline }}</p>
+      <p><span class="meta-label">Deadline:</span> {% include v.html value=r.deadline %}</p>
+      <p class="status-banner__actions">
+        {%- if r.status == "open" and r.application_url != "" %}
+        <a class="button" href="{{ r.application_url }}" rel="noopener">Apply now {% include icon.html name="arrow" %}</a>
+        {%- endif %}
+        {%- if r.euraxess_url != "" %}
+        <a class="button button--outline" href="{{ r.euraxess_url }}" rel="noopener">EURAXESS {% include icon.html name="external" %}</a>
+        {%- endif %}
+        {%- if r.guide_pdf != "" %}
+        <a class="button button--outline" href="{{ r.guide_pdf | relative_url }}">{% include icon.html name="doc" %} Recruitment guide (PDF)</a>
+        {%- endif %}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="positions-title">
+  <div class="container">
+    <h2 id="positions-title" class="section__title">Positions</h2>
+    {%- if open_dcs.size > 0 %}
+    <div class="grid grid--2">
+      {%- for dc in open_dcs %}{% include dc-card.html dc=dc full=true %}{% endfor %}
+    </div>
+    {%- elsif upcoming_dcs.size > 0 %}
+    <p>The following doctoral projects will be advertised soon:</p>
+    <div class="grid grid--3">
+      {%- for dc in upcoming_dcs %}{% include dc-card.html dc=dc compact=true %}{% endfor %}
+    </div>
+    {%- else %}
+    <p class="empty">There are no open positions at the moment.</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="eligibility-title">
+  <div class="container two-col">
+    <div>
+      <h2 id="eligibility-title" class="section__title">Eligibility</h2>
+      <p>To be eligible for an MSCA Doctoral Network position, applicants must, on the date of recruitment
+        ({% include v.html value=r.recruitment_date %}):</p>
+      <ul class="check-list" role="list">
+        <li>{% include icon.html name="check" %}<span><strong>Not already hold a doctoral degree.</strong></span></li>
+        <li>{% include icon.html name="check" %}<span><strong>Comply with the MSCA mobility rule:</strong> not have resided or carried out their main activity (work, studies, etc.) in the country of the recruiting organisation for more than 12 months in the 36 months immediately before the recruitment date.</span></li>
+        <li>{% include icon.html name="check" %}<span><strong>Be eligible to enrol in a doctoral programme</strong> at the PhD-awarding institution of the position.</span></li>
+        <li>{% include icon.html name="check" %}<span>Applicants of <strong>any nationality</strong> may apply.</span></li>
+      </ul>
+      <p class="small">The applicable rules are those of the MSCA Doctoral Networks call under which AURIS is funded. See the
+        <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks" rel="noopener">official MSCA Doctoral Networks page</a>.
+        <span class="todo">TODO: add position-specific requirements (degree, skills, language).</span></p>
+    </div>
+    <div>
+      <h2 id="offer-title" class="section__title">What we offer</h2>
+      <ul class="check-list" role="list">
+        <li>{% include icon.html name="check" %}<span>An employment contract with full social security coverage, with a salary following MSCA rules (living, mobility and, where applicable, family allowances, adjusted by a country correction coefficient).</span></li>
+        <li>{% include icon.html name="check" %}<span>Enrolment in a doctoral programme leading to a PhD degree.</span></li>
+        <li>{% include icon.html name="check" %}<span>Network-wide training events and secondments to other partners of the consortium.</span></li>
+      </ul>
+      <p class="small"><span class="todo">TODO: contract duration, start date and any host-specific conditions.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="timeline-title">
+  <div class="container container--narrow">
+    <h2 id="timeline-title" class="section__title">Selection process</h2>
+    <ol class="timeline" role="list">
+      {%- for step in r.timeline %}
+      <li class="timeline__step">
+        <p class="timeline__when">{% include v.html value=step.when %}</p>
+        <p class="timeline__what">{{ step.what }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="small">AURIS follows open, transparent and merit-based recruitment in line with the European Charter for Researchers and the Code of Conduct for their Recruitment, and is committed to gender balance and equal opportunities.</p>
+  </div>
+</section>

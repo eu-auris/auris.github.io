@@ -1,0 +1,12 @@
+# -----------------------------------------------------------------------------
+# News items, newest first is computed automatically (sorted by `date`).
+#   date: YYYY-MM-DD
+#   url: optional link to a longer article (external or a page on this site)
+#   image: optional path under /assets/images/news/ ; image_alt is then required
+# -----------------------------------------------------------------------------
+- date: 2026-11-07
+  title: "TODO: first news item (e.g. AURIS website online)"
+  summary: "TODO: two or three sentences."
+  url: ""
+  image: ""
+  image_alt: ""

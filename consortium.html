@@ -1,0 +1,48 @@
+---
+layout: page
+title: Consortium
+permalink: /consortium/
+lead: AURIS brings together academic and non-academic organisations. Beneficiaries recruit and host the doctoral candidates; associated partners contribute to supervision, training and secondments.
+---
+{%- assign beneficiaries = site.data.partners | where: "type", "beneficiary" -%}
+{%- assign associated = site.data.partners | where: "type", "associated" -%}
+
+<section class="section" aria-labelledby="ben-title">
+  <div class="container">
+    <div class="section__head">
+      <h2 id="ben-title" class="section__title">Beneficiaries</h2>
+      <p class="count">{{ beneficiaries.size }} organisation{% if beneficiaries.size != 1 %}s{% endif %}</p>
+    </div>
+    <ul class="grid grid--3" role="list">
+      {%- for pt in beneficiaries %}
+      {% include partner-card.html partner=pt full=true %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tinted" aria-labelledby="ap-title">
+  <div class="container">
+    <div class="section__head">
+      <h2 id="ap-title" class="section__title">Associated partners</h2>
+      <p class="count">{{ associated.size }} organisation{% if associated.size != 1 %}s{% endif %}</p>
+    </div>
+    <ul class="grid grid--3" role="list">
+      {%- for pt in associated %}
+      {% include partner-card.html partner=pt full=true %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="countries-title">
+  <div class="container">
+    <h2 id="countries-title" class="section__title">Countries</h2>
+    {%- assign countries = site.data.partners | map: "country" | uniq | sort %}
+    <ul class="chip-list" role="list">
+      {%- for c in countries %}
+      <li class="chip">{% include icon.html name="pin" %}{% include v.html value=c %}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

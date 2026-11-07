@@ -1,0 +1,29 @@
+---
+layout: page
+title: News
+permalink: /news/
+lead: Announcements, results and highlights from the AURIS network.
+---
+{%- assign news = site.data.news | sort: "date" | reverse -%}
+<section class="section" aria-labelledby="news-list-title">
+  <div class="container container--narrow">
+    <h2 id="news-list-title" class="visually-hidden">All news</h2>
+    {%- if news.size == 0 %}
+    <p class="empty">No news yet — check back soon.</p>
+    {%- endif %}
+    <ul class="news-feed" role="list">
+      {%- for item in news %}
+      <li class="card news-item">
+        {%- if item.image != "" %}
+        <img class="news-item__image" src="{{ item.image | relative_url }}" alt="{{ item.image_alt }}" loading="lazy">
+        {%- endif %}
+        <div class="news-item__body">
+          <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: "%-d %B %Y" }}</time>
+          <h3 class="news-item__title">{%- if item.url != "" -%}<a href="{{ item.url }}">{{ item.title }}</a>{%- else -%}{% include v.html value=item.title %}{%- endif -%}</h3>
+          <p>{% include v.html value=item.summary %}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

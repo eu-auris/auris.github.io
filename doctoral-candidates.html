@@ -1,0 +1,16 @@
+---
+layout: page
+title: Doctoral Candidates
+permalink: /doctoral-candidates/
+lead: Each doctoral candidate (DC) carries out an individual research project at a host organisation, with co-supervision and secondments elsewhere in the network.
+---
+<section class="section" aria-labelledby="dc-list-title">
+  <div class="container">
+    <h2 id="dc-list-title" class="visually-hidden">Doctoral projects</h2>
+    <div class="grid grid--2">
+      {%- for dc in site.data.doctoral_candidates %}
+      {% include dc-card.html dc=dc full=true %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>

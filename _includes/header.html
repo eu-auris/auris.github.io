@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand__logo" src="{{ '/assets/images/auris-logo-transparent.png' | relative_url }}" width="704" height="228" alt="AURIS — home">
+      <span class="brand__tag">MSCA Doctoral Network</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Toggle light/dark theme">
+        <span class="theme-toggle__light">{% include icon.html name="moon" %}</span>
+        <span class="theme-toggle__dark">{% include icon.html name="sun" %}</span>
+      </button>
+      <button class="icon-button nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="nav-toggle__open">{% include icon.html name="menu" %}</span>
+        <span class="nav-toggle__close">{% include icon.html name="close" %}</span>
+      </button>
+    </div>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        {%- for item in site.data.navigation %}
+        {%- assign item_url = item.url | relative_url -%}
+        {%- assign is_current = false -%}
+        {%- if page.url == item.url -%}{%- assign is_current = true -%}{%- endif %}
+        <li><a class="site-nav__link" href="{{ item_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
