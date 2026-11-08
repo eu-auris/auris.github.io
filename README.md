@@ -153,7 +153,8 @@ _includes/             fragments : en-tête, pied de page, bloc UE, cartes DC/pa
 _layouts/              default.html (squelette), page.html (pages intérieures)
 assets/css/main.css    styles (variables, clair/sombre, responsive)
 assets/js/             theme-init.js (thème avant affichage), main.js (menu mobile, bascule de thème)
-assets/images/         logo, favicons, emblème UE, spirale décorative
+assets/images/         logo, favicons, emblème UE, logos des partenaires
+assets/media/          vidéo ROBOCOP du bandeau d'accueil (+ image d'aperçu)
 *.html                 pages : index, about, consortium, doctoral-candidates, training, news, vacancies, contact, privacy, 404
 scripts/serve.sh       serveur local
 ```

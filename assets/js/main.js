@@ -51,4 +51,30 @@
     if (media && media.addEventListener) media.addEventListener('change', updateLabel);
     updateLabel();
   }
+
+  /* ---- Hero video: plays muted unless the visitor prefers reduced motion -- */
+  var video = document.querySelector('[data-hero-video]');
+  var videoToggle = document.querySelector('[data-hero-video-toggle]');
+  if (video && videoToggle) {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setPaused(paused) {
+      videoToggle.setAttribute('data-paused', String(paused));
+      videoToggle.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+    }
+
+    videoToggle.hidden = false;
+    videoToggle.addEventListener('click', function () {
+      if (video.paused) { video.play(); } else { video.pause(); }
+    });
+    video.addEventListener('play', function () { setPaused(false); });
+    video.addEventListener('pause', function () { setPaused(true); });
+
+    if (reduce) {
+      setPaused(true);
+    } else {
+      var attempt = video.play();
+      if (attempt && attempt.catch) attempt.catch(function () { setPaused(true); });
+    }
+  }
 })();

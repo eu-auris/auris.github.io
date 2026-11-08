@@ -1,62 +1,178 @@
 # -----------------------------------------------------------------------------
-# Consortium members.
+# Consortium members (source: proposal, "List of participating organisations").
 #   type: beneficiary | associated     (associated = associated partner)
-#   logo: path under /assets/images/partners/ (optional; initials are shown otherwise)
 #   sector: academic | non-academic
-# Duplicate a block for each organisation.
+#   awards_doctorate: true when the organisation awards doctoral degrees
+#   coordinator: true for the coordinating beneficiary (only one)
+#   logo: path under /assets/images/partners/ ("" → the short name is shown instead)
+#   logo_on_dark: true when the logo is white and needs a dark tile
+#   logo2: optional second logo (e.g. joint team of two institutions)
+#   city: "" hides the city. Cities marked "# check" come from public company
+#         registries, not from the proposal — please confirm them.
 # -----------------------------------------------------------------------------
-- short: "TODO"
-  name: "TODO: beneficiary name (coordinator)"
+
+# ---------------------------------------------------------------- Beneficiaries
+- short: KUL
+  name: KU Leuven
   type: beneficiary
   coordinator: true
   sector: academic
-  city: "TODO: city"
-  country: "TODO: country"
-  url: ""
-  logo: ""
-  contact: "TODO: principal investigator"
-  role: "TODO: role in the network"
+  awards_doctorate: true
+  city: Leuven
+  country: Belgium
+  department: Department of Mechanical Engineering
+  contact: Emmanuel Vander Poorten
+  url: https://www.kuleuven.be/english/
+  logo: /assets/images/partners/kul.svg
 
-- short: "TODO"
-  name: "TODO: beneficiary name"
+- short: POLIMI
+  name: Politecnico di Milano
   type: beneficiary
   sector: academic
-  city: "TODO: city"
-  country: "TODO: country"
-  url: ""
-  logo: ""
-  contact: "TODO: principal investigator"
-  role: "TODO: role in the network"
+  awards_doctorate: true
+  city: Milan
+  country: Italy
+  department: Department of Electronics, Information and Bioengineering
+  contact: Elena De Momi
+  url: https://www.polimi.it/en
+  logo: /assets/images/partners/polimi.svg
 
-- short: "TODO"
-  name: "TODO: beneficiary name"
+- short: SSSA
+  name: Scuola Superiore di Studi Universitari e di Perfezionamento Sant'Anna
+  type: beneficiary
+  sector: academic
+  awards_doctorate: true
+  city: Pisa
+  country: Italy
+  department: Institute of BioRobotics
+  contact: Arianna Menciassi
+  url: https://www.santannapisa.it/en
+  logo: /assets/images/partners/sssa.svg
+
+- short: KCL
+  name: King's College London
+  type: beneficiary
+  sector: academic
+  awards_doctorate: true
+  city: London
+  country: United Kingdom
+  department: School of Biomedical Engineering & Imaging Sciences
+  contact: Christos Bergeles
+  url: https://www.kcl.ac.uk/
+  logo: /assets/images/partners/kcl.svg
+
+- short: HELICO
+  name: Helico Technologies Limited
   type: beneficiary
   sector: non-academic
-  city: "TODO: city"
-  country: "TODO: country"
-  url: ""
-  logo: ""
-  contact: "TODO: principal investigator"
-  role: "TODO: role in the network"
+  awards_doctorate: false
+  city: London
+  country: United Kingdom
+  department: ""
+  contact: Lukas Lindenroth
+  url: https://www.helico-technologies.com/
+  logo: /assets/images/partners/helico.svg
+  logo_on_dark: true
 
-- short: "TODO"
-  name: "TODO: associated partner name"
+- short: UM
+  name: University of Montpellier
+  type: beneficiary
+  sector: academic
+  awards_doctorate: true
+  city: Montpellier
+  country: France
+  department: LIRMM, Department of Robotics, DEXTER team
+  contact: Philippe Poignet
+  url: https://www.umontpellier.fr/en/
+  logo: /assets/images/partners/um.png
+
+- short: COCH
+  name: Cochlear France SAS
+  type: beneficiary
+  sector: non-academic
+  awards_doctorate: false
+  city: Vallauris
+  country: France
+  department: Advanced Innovation
+  contact: Raabid Hussain
+  url: https://www.cochlear.com/
+  logo: /assets/images/partners/cochlear.png
+
+- short: INRIA
+  name: Inria — Université de Lille
+  type: beneficiary
+  sector: academic
+  awards_doctorate: true
+  city: Lille
+  country: France
+  department: Defrost team
+  contact: Gang Zheng
+  url: https://www.inria.fr/en
+  logo: /assets/images/partners/inria.svg
+  logo2: /assets/images/partners/ulille.svg
+
+# ---------------------------------------------------------- Associated partners
+- short: ACOU
+  name: Acoustic Insight BV
   type: associated
   sector: non-academic
-  city: "TODO: city"
-  country: "TODO: country"
-  url: ""
-  logo: ""
-  contact: "TODO: contact person"
-  role: "TODO: e.g. hosts secondments, co-supervision"
+  awards_doctorate: false
+  city: Delft            # check
+  country: The Netherlands
+  department: ""
+  contact: Harry De Vries
+  role: Secondment host
+  url: https://acoustic-insight.com/
+  logo: /assets/images/partners/acoustic-insight.png
 
-- short: "TODO"
-  name: "TODO: associated partner name"
+- short: ARTI
+  name: ARTINESS SRL
   type: associated
-  sector: academic
-  city: "TODO: city"
-  country: "TODO: country"
-  url: ""
-  logo: ""
-  contact: "TODO: contact person"
-  role: "TODO: e.g. PhD awarding institution"
+  sector: non-academic
+  awards_doctorate: false
+  city: Milan            # check
+  country: Italy
+  department: ""
+  contact: Filippo Piatti
+  role: Secondment host
+  url: https://www.artinessreality.com/
+  logo: /assets/images/partners/artiness.png
+
+- short: ATLAS
+  name: ATLAS Endoscopy Limited
+  type: associated
+  sector: non-academic
+  awards_doctorate: false
+  city: Leeds            # check
+  country: United Kingdom
+  department: ""
+  contact: Bruno Scaglioni
+  role: Secondment host
+  url: https://www.atlasendoscopy.org/
+  logo: /assets/images/partners/atlas-endoscopy.png
+
+- short: CARA
+  name: Caranx Medical
+  type: associated
+  sector: non-academic
+  awards_doctorate: false
+  city: ""               # TODO: confirm (Paris or Nice?)
+  country: France
+  department: ""
+  contact: Pierre Berthet-Rayne
+  role: Secondment host
+  url: ""                # caranx-medical.com now redirects to carvolix.eu — confirm
+  logo: ""               # TODO: official logo
+
+- short: COLL
+  name: Collin
+  type: associated
+  sector: non-academic
+  awards_doctorate: false
+  city: Bagneux          # check
+  country: France
+  department: ""
+  contact: Stephane Mazalaigue
+  role: Secondment host
+  url: ""                # TODO: official website
+  logo: ""               # TODO: official logo

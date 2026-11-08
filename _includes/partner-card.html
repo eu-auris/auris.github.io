@@ -1,30 +1,41 @@
 {%- assign pt = include.partner -%}
 <li class="card partner-card">
-  <div class="partner-card__logo">
-    {%- if pt.logo != "" %}
-    <img src="{{ pt.logo | relative_url }}" alt="{{ pt.name }} logo" loading="lazy">
-    {%- else %}
-    <span class="partner-card__initials" aria-hidden="true">{{ pt.short | replace: "TODO", "?" }}</span>
+  <div class="partner-card__logos">
+    <div class="partner-logo{% if pt.logo_on_dark %} partner-logo--dark{% endif %}">
+      {%- if pt.logo and pt.logo != "" %}
+      <img src="{{ pt.logo | relative_url }}" alt="{{ pt.name }} logo" loading="lazy">
+      {%- else %}
+      <span class="partner-logo__initials" aria-hidden="true">{{ pt.short }}</span>
+      {%- endif %}
+    </div>
+    {%- if pt.logo2 and pt.logo2 != "" %}
+    <div class="partner-logo">
+      <img src="{{ pt.logo2 | relative_url }}" alt="" loading="lazy">
+    </div>
     {%- endif %}
   </div>
+
   <div class="partner-card__body">
     <h3 class="partner-card__name">
-      {%- if pt.url != "" -%}
+      {%- if pt.url and pt.url != "" -%}
       <a href="{{ pt.url }}" rel="noopener">{{ pt.name }}</a>
       {%- else -%}
-      {% include v.html value=pt.name %}
+      {{ pt.name }}
       {%- endif -%}
+      <span class="partner-card__short">({{ pt.short }})</span>
     </h3>
-    <p class="partner-card__place">{% include icon.html name="pin" %}<span>{% include v.html value=pt.city %}, {% include v.html value=pt.country %}</span></p>
+    {%- if pt.department and pt.department != "" %}
+    <p class="partner-card__dept">{{ pt.department }}</p>
+    {%- endif %}
+    <p class="partner-card__place">{% include icon.html name="pin" %}<span>{% if pt.city and pt.city != "" %}{{ pt.city }}, {% endif %}{{ pt.country }}</span></p>
     <p class="partner-card__tags">
       {%- if pt.coordinator %}<span class="badge badge--coordinator">Coordinator</span>{% endif %}
       <span class="badge">{% if pt.sector == "academic" %}Academic{% else %}Non-academic{% endif %}</span>
+      {%- if pt.awards_doctorate %}<span class="badge badge--recruited">Awards doctoral degrees</span>{% endif %}
+      {%- if pt.role and pt.role != "" %}<span class="badge badge--recruited">{{ pt.role }}</span>{% endif %}
     </p>
-    {%- if include.full %}
-    <dl class="meta-list meta-list--compact">
-      <div><dt>Contact</dt><dd>{% include v.html value=pt.contact %}</dd></div>
-      <div><dt>Role</dt><dd>{% include v.html value=pt.role %}</dd></div>
-    </dl>
+    {%- if include.full and pt.contact and pt.contact != "" %}
+    <p class="partner-card__contact"><span class="meta-label">Scientist in charge:</span> {% include v.html value=pt.contact %}</p>
     {%- endif %}
   </div>
 </li>

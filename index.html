@@ -5,9 +5,10 @@ title: Home
 {%- assign p = site.data.project -%}
 {%- assign r = site.data.recruitment -%}
 
+{%- assign hm = p.hero_media -%}
 <section class="hero" aria-labelledby="hero-title">
-  <img class="hero__spiral" src="{{ '/assets/images/cochlea-spiral.svg' | relative_url }}" alt="" width="400" height="400">
-  <div class="container hero__inner">
+  <div class="container hero__inner{% if hm.video %} hero__inner--media{% endif %}">
+    <div class="hero__text">
     <p class="eyebrow eyebrow--on-dark">{{ p.network_type }}</p>
     <h1 id="hero-title" class="hero__title">
       <span class="hero__acronym">{{ p.acronym }}</span>
@@ -21,6 +22,26 @@ title: Home
     <p class="hero__eu">
       <img src="{{ '/assets/images/eu/funded-by-the-eu-pos.png' | relative_url }}" width="1000" height="223" alt="Funded by the European Union">
     </p>
+    </div>
+
+    {%- if hm.video %}
+    <figure class="hero-media">
+      <div class="hero-media__frame">
+        <video class="hero-media__video" data-hero-video muted loop playsinline preload="metadata"
+               poster="{{ hm.poster | relative_url }}" width="{{ hm.width }}" height="{{ hm.height }}"
+               aria-label="{{ hm.alt }}">
+          <source src="{{ hm.video | relative_url }}" type="video/mp4">
+        </video>
+        <button class="hero-media__toggle" type="button" data-hero-video-toggle data-paused="false" aria-label="Pause video" hidden>
+          <span class="hero-media__icon-pause" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" focusable="false"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span>
+          <span class="hero-media__icon-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" focusable="false"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span>
+        </button>
+      </div>
+      <figcaption class="hero-media__caption">
+        {%- if hm.link and hm.link != "" -%}<a href="{{ hm.link }}" rel="noopener">{{ hm.caption }}</a>{%- else -%}{{ hm.caption }}{%- endif -%}
+      </figcaption>
+    </figure>
+    {%- endif %}
   </div>
 </section>
 
@@ -139,12 +160,11 @@ title: Home
     </div>
     <ul class="logo-strip" role="list">
       {%- for pt in site.data.partners %}
-      <li class="logo-strip__item">
-        {%- if pt.logo != "" -%}
-        <img src="{{ pt.logo | relative_url }}" alt="{{ pt.name }}" loading="lazy">
-        {%- else -%}
-        {% include v.html value=pt.name %}
-        {%- endif -%}
+      <li class="logo-strip__item{% if pt.logo_on_dark %} logo-strip__item--dark{% endif %}">
+        {%- capture inner -%}
+        {%- if pt.logo and pt.logo != "" -%}<img src="{{ pt.logo | relative_url }}" alt="{{ pt.name }}" loading="lazy">{%- else -%}<span>{{ pt.name }}</span>{%- endif -%}
+        {%- endcapture -%}
+        {%- if pt.url and pt.url != "" -%}<a href="{{ pt.url }}" rel="noopener">{{ inner }}</a>{%- else -%}{{ inner }}{%- endif -%}
       </li>
       {%- endfor %}
     </ul>

@@ -19,6 +19,19 @@ intro: >-
   ultra-precise robotics and simulation matter for inner-ear surgery, and what
   the network will deliver.
 
+# Video shown in the home-page hero (remove the block to hide it).
+# Muted, looped, paused automatically for visitors who prefer reduced motion.
+hero_media:
+  video: /assets/media/robocop-force-view.mp4
+  poster: /assets/media/robocop-poster.jpg
+  width: 1080
+  height: 760
+  alt: >-
+    SOFA simulation of a cochlear implant electrode being inserted along the
+    spiral of the cochlea.
+  caption: "Simulation of robotic cochlear implant insertion in SOFA — ROBOCOP project"
+  link: https://adagolodjo.com/research/projects/robocop/
+
 call: "TODO: call identifier (e.g. HORIZON-MSCA-20XX-DN-01)"
 grant_agreement: "TODO: grant agreement number"
 start_date: "TODO: start date"
@@ -26,16 +39,16 @@ end_date: "TODO: end date"
 duration: "TODO: duration (months)"
 eu_contribution: "TODO: EU contribution (€)"
 number_of_dcs: "TODO: number of doctoral candidates"
-number_of_beneficiaries: "TODO: number of beneficiaries"
-number_of_associated_partners: "TODO: number of associated partners"
+number_of_beneficiaries: "8"
+number_of_associated_partners: "5"
 
 # Link to the CORDIS fact sheet once the project is listed (leave empty to hide).
 cordis_url: ""
 
 coordinator:
-  name: "TODO: coordinator name"
-  institution: "TODO: coordinating institution"
-  country: "TODO: country"
+  name: Emmanuel Vander Poorten
+  institution: KU Leuven
+  country: Belgium
 
 project_manager:
   name: "TODO: project manager name"
