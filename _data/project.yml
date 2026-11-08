@@ -32,6 +32,14 @@ hero_media:
   caption: "Simulation of robotic cochlear implant insertion in SOFA — ROBOCOP project"
   link: https://adagolodjo.com/research/projects/robocop/
 
+# "Under construction" notice at the top of the home page.
+# Set `show: false` to remove it once the content is complete.
+under_construction:
+  show: true
+  message: >-
+    Content is being added progressively and some information is still
+    missing.
+
 call: "TODO: call identifier (e.g. HORIZON-MSCA-20XX-DN-01)"
 grant_agreement: "TODO: grant agreement number"
 start_date: "TODO: start date"

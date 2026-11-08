@@ -1,0 +1,118 @@
+# -----------------------------------------------------------------------------
+# Main training events & conferences (table on the Training & Events page).
+# Source: consortium training table (CNT 1–7 + additional rows).
+#
+#   scope:  network (open to all doctoral candidates) | local (at the host)
+#   lead:   list of partner short codes from partners.yml (shown with the
+#           full name); any other value is printed as-is
+#   ects:   leave empty ("") when no credits are awarded / not known
+#   url:    optional link to the course or event page
+# -----------------------------------------------------------------------------
+
+- title: Medical Devices & Regulatory Affairs
+  scope: local
+  lead: [KUL]
+  duration: 90 h
+  ects: "3"
+  period: Sep 2028 – Dec 2028
+  url: ""
+
+- title: CRAS – Conference on New Technologies for Computer/Robot-Assisted Surgery
+  scope: network
+  lead: [KUL, SSSA, POLIMI]   # check: third lead shown as "PO…" in the table
+  duration: 3 days
+  ects: "1"
+  period: Sep 2028, Sep 2029
+  url: ""
+
+- title: "Exploitation of Research: Technology & Knowledge Transfer"
+  scope: local
+  lead: [KUL]
+  duration: 45 h
+  ects: "1.5"
+  period: Sep 2029 – Dec 2029
+  url: ""
+
+- title: Summer School on Deformation in Robotics
+  scope: network
+  lead: [INRIA]
+  duration: 5 days
+  ects: ""
+  period: July 2028 (biennial)
+  url: ""
+
+- title: Advanced Digital Technologies Training
+  scope: network
+  lead: [INRIA]
+  duration: 1–5 days (depending on course)
+  ects: ""
+  period: Throughout the year   # check: text truncated in the table ("according…")
+  url: ""
+
+- title: SOFA Week
+  scope: network
+  lead: [INRIA]
+  duration: 5 days
+  ects: ""
+  period: Annual
+  url: ""
+
+- title: Entrepreneurship Training
+  scope: local
+  lead: [INRIA]
+  duration: 7 days
+  ects: ""
+  period: Annual
+  url: ""
+
+# Open question in the table, not published:
+# "can we consider semester courses of the doctoral programme? (AI ethics,
+#  project management)" — scope: local, lead/duration/ECTS not given.
+
+- title: ICRA 2029 – IEEE International Conference on Robotics and Automation
+  scope: network
+  lead: [POLIMI]
+  duration: 6 days
+  ects: ""
+  period: 7–12 May 2029
+  url: ""
+
+- title: DRIMS – Doctoral Summer School on Robotics and Intelligent Machines
+  scope: network
+  lead: [POLIMI]
+  duration: 7 days
+  ects: "3"
+  period: 30 Aug – 6 Sep, yearly   # check year
+  url: ""
+
+- title: LIHE Workshop on Entrepreneurship and Innovation
+  scope: network
+  lead: [KCL]
+  duration: 3 days
+  ects: "1"
+  period: "TODO: period (TBD)"
+  url: ""
+
+- title: Summer School on Surgical Robotics
+  scope: network
+  lead: [UM]
+  duration: 5–7 days
+  ects: "5"
+  period: June 2029 (biennial)
+  url: ""
+
+- title: PREPABLOC Teaching Unit
+  scope: local
+  lead: [UM]
+  duration: 5 days
+  ects: ""
+  period: June 2028 (annual)
+  url: ""
+
+- title: Team Collaboration in the Operating Room
+  scope: network
+  lead: [STAN institute]
+  duration: "TODO: duration"
+  ects: ""
+  period: "TODO: period"
+  url: ""

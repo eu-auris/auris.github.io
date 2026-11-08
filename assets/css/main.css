@@ -614,6 +614,83 @@ main:focus { outline: none; }
   .meta-list > div { grid-template-columns: 1fr; gap: 0; }
 }
 
+/* Training events table (stacks into cards below 760px) */
+.section__intro { max-width: 70ch; color: var(--color-text-muted); margin-bottom: 1.5rem; line-height: 1.9; }
+.badge--network { background: var(--color-chip-bg); color: var(--color-chip-text); }
+.badge--local { background: var(--color-surface-raised); color: var(--color-text-muted); box-shadow: inset 0 0 0 1px var(--color-border); }
+.training-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: .95rem;
+}
+.training-table th, .training-table td {
+  padding: .8rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+.training-table thead th {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: var(--color-surface-alt);
+}
+.training-table tbody tr:last-child > * { border-bottom: 0; }
+.training-table tbody tr:hover > * { background: var(--color-surface-alt); }
+.training-table__title { font-weight: 650; color: var(--color-heading); }
+.training-table td:nth-child(5) { text-align: center; font-variant-numeric: tabular-nums; }
+.training-table thead th:nth-child(5) { text-align: center; }
+@media (min-width: 1000px) {
+  .training-table td:nth-child(3), .training-table td:nth-child(6) { white-space: nowrap; }
+}
+.training-table abbr[title] { text-decoration: underline dotted; text-underline-offset: .2em; cursor: help; }
+@media (max-width: 759px) {
+  .training-table, .training-table tbody, .training-table tr, .training-table th, .training-table td { display: block; }
+  .training-table { background: transparent; border: 0; border-radius: 0; overflow: visible; }
+  .training-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .training-table tbody { display: grid; gap: .75rem; }
+  .training-table tr {
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: .9rem 1rem;
+  }
+  .training-table tbody tr:hover > * { background: transparent; }
+  .training-table th, .training-table td { padding: 0; border: 0; }
+  .training-table__title { margin-bottom: .6rem; }
+  .training-table td { display: grid; grid-template-columns: 6.5rem 1fr; gap: .75rem; padding-block: .2rem; }
+  .training-table td:nth-child(5) { text-align: left; }
+  .training-table td::before {
+    content: attr(data-label);
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+}
+
+/* "Under construction" notice (home page) */
+.construction-notice {
+  background: var(--color-warn-bg);
+  color: var(--color-warn);
+  border-bottom: 1px solid var(--color-warn);
+}
+.construction-notice__inner {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding-block: .7rem;
+  font-size: .95rem;
+}
+.construction-notice__inner p { margin: 0; }
+.construction-notice__icon { flex: none; width: 22px; height: 22px; }
+
 /* Badges & chips */
 .badge {
   display: inline-block;

@@ -13,12 +13,12 @@ lead: The AURIS training programme combines research training through each docto
       <li class="card feature">
         <span class="feature__icon">{% include icon.html name="training" %}</span>
         <h3 class="feature__title">Research training</h3>
-        <p>Training through research in each doctoral project, at the host organisation and under co-supervision. <span class="todo">TODO: describe local training and PhD-school courses.</span></p>
+        <p>Training through research in each doctoral project, at the host organisation and under co-supervision, complemented by <a href="#courses-title">local courses</a> at the host institutions.</p>
       </li>
       <li class="card feature">
         <span class="feature__icon">{% include icon.html name="users" %}</span>
         <h3 class="feature__title">Network-wide events</h3>
-        <p>Schools, workshops and network meetings open to all doctoral candidates. <span class="todo">TODO: list the planned network-wide training events.</span></p>
+        <p>Summer schools, workshops and conferences open to all doctoral candidates — see the <a href="#courses-title">main training events</a> below.</p>
       </li>
       <li class="card feature">
         <span class="feature__icon">{% include icon.html name="globe" %}</span>
@@ -29,7 +29,49 @@ lead: The AURIS training programme combines research training through each docto
   </div>
 </section>
 
-<section class="section section--tinted" aria-labelledby="upcoming-title">
+<section class="section section--tinted" aria-labelledby="courses-title">
+  <div class="container">
+    <h2 id="courses-title" class="section__title">Main training events &amp; conferences</h2>
+    <p class="section__intro"><span class="badge badge--network">Network-wide</span> events are open to all doctoral candidates; <span class="badge badge--local">Local</span> courses are offered at the lead institution. Periods are tentative.</p>
+    <table class="training-table">
+      <caption class="visually-hidden">Main training events and conferences of the AURIS programme</caption>
+      <thead>
+        <tr>
+          <th scope="col">Training event</th>
+          <th scope="col">Type</th>
+          <th scope="col">Lead</th>
+          <th scope="col">Duration</th>
+          <th scope="col">ECTS</th>
+          <th scope="col">Tentative period</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for c in site.data.training_courses %}
+        <tr>
+          <th scope="row" class="training-table__title">
+            {%- if c.url and c.url != "" -%}<a href="{{ c.url }}" rel="noopener">{{ c.title }}</a>{%- else -%}{{ c.title }}{%- endif -%}
+          </th>
+          <td data-label="Type"><span>
+            {%- if c.scope == "network" -%}<span class="badge badge--network">Network-wide</span>{%- else -%}<span class="badge badge--local">Local</span>{%- endif -%}
+          </span></td>
+          <td data-label="Lead"><span>
+            {%- for code in c.lead -%}
+            {%- assign pt = site.data.partners | where: "short", code | first -%}
+            {%- if pt -%}<abbr title="{{ pt.name }}">{{ code }}</abbr>{%- else -%}{{ code }}{%- endif -%}
+            {%- unless forloop.last %}, {% endunless -%}
+            {%- endfor -%}
+          </span></td>
+          <td data-label="Duration"><span>{% include v.html value=c.duration %}</span></td>
+          <td data-label="ECTS"><span>{%- if c.ects and c.ects != "" -%}{{ c.ects }}{%- else -%}<span aria-hidden="true">–</span><span class="visually-hidden">None</span>{%- endif -%}</span></td>
+          <td data-label="Period"><span>{% include v.html value=c.period %}</span></td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="upcoming-title">
   <div class="container two-col">
     <div>
       <h2 id="upcoming-title" class="section__title">Upcoming events</h2>

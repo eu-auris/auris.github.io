@@ -5,6 +5,15 @@ title: Home
 {%- assign p = site.data.project -%}
 {%- assign r = site.data.recruitment -%}
 
+{%- if p.under_construction.show %}
+<div class="construction-notice" role="note" aria-label="Under construction">
+  <div class="container construction-notice__inner">
+    {% include icon.html name="tool" class="construction-notice__icon" %}
+    <p><strong>This website is under construction.</strong> {{ p.under_construction.message }}</p>
+  </div>
+</div>
+{%- endif %}
+
 {%- assign hm = p.hero_media -%}
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner{% if hm.video %} hero__inner--media{% endif %}">

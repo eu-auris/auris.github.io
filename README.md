@@ -68,6 +68,7 @@ il suffit de parcourir le site pour voir ce qui manque.
 | [`work_packages.yml`](_data/work_packages.yml) | Work packages | About |
 | [`partners.yml`](_data/partners.yml) | Bénéficiaires et partenaires associés | Home, Consortium |
 | [`doctoral_candidates.yml`](_data/doctoral_candidates.yml) | Projets DC (statut, hôte, encadrants, secondments…) | Home, Doctoral Candidates, Vacancies |
+| [`training_courses.yml`](_data/training_courses.yml) | Tableau des principales formations et conférences (type, responsable, durée, ECTS, période) | Training & Events |
 | [`events.yml`](_data/events.yml) | Formations et événements | Home, Training & Events |
 | [`news.yml`](_data/news.yml) | Actualités | Home, News |
 | [`recruitment.yml`](_data/recruitment.yml) | Statut du recrutement, date limite, calendrier | Home, Vacancies |
