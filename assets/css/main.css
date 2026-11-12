@@ -463,6 +463,21 @@ main:focus { outline: none; }
   border-radius: var(--radius-sm);
 }
 .hero__eu img { display: block; width: 210px; height: auto; }
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 1.75rem 0 0;
+  padding: .55rem .95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(169, 203, 230, .45);
+  background: rgba(255, 255, 255, .08);
+  color: #ffffff;
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.hero__status .icon { flex: none; width: 20px; height: 20px; }
 
 .eyebrow {
   margin: 0 0 .5rem;
@@ -998,6 +1013,10 @@ main:focus { outline: none; }
 @media (min-width: 760px) {
   .eu-funding { grid-template-columns: minmax(240px, 320px) 1fr; }
 }
+@media (min-width: 760px) {
+  .eu-funding--proposal { grid-template-columns: 1fr; }
+}
+.eu-funding--proposal .eu-funding__text p { margin-bottom: 0; }
 .eu-funding__emblem {
   background: #ffffff;
   border-radius: var(--radius-sm);

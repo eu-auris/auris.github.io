@@ -6,6 +6,18 @@
   other logos shown on the page, and always together with the funding statement.
 {%- endcomment -%}
 {%- assign p = site.data.project -%}
+{%- if p.status == "proposal" %}
+{%- comment -%} Not funded yet: no EU emblem and no funding statement. {%- endcomment %}
+<section class="eu-funding eu-funding--proposal" aria-labelledby="eu-funding-title">
+  <h2 id="eu-funding-title" class="visually-hidden">Project status</h2>
+  <div class="eu-funding__text">
+    <p>
+      {{ p.acronym }} is a proposal under submission to the Horizon Europe Marie Skłodowska-Curie Actions
+      Doctoral Networks call. It has not received EU funding at this stage.
+    </p>
+  </div>
+</section>
+{%- else %}
 <section class="eu-funding" aria-labelledby="eu-funding-title">
   <h2 id="eu-funding-title" class="visually-hidden">EU funding acknowledgement</h2>
   <div class="eu-funding__emblem">
@@ -23,3 +35,4 @@
     </p>
   </div>
 </section>
+{%- endif %}

@@ -15,22 +15,27 @@ title: Home
 {%- endif %}
 
 {%- assign hm = p.hero_media -%}
+{%- assign is_proposal = false -%}{%- if p.status == "proposal" -%}{%- assign is_proposal = true -%}{%- endif -%}
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner{% if hm.video %} hero__inner--media{% endif %}">
     <div class="hero__text">
-    <p class="eyebrow eyebrow--on-dark">{{ p.network_type }}</p>
+    <p class="eyebrow eyebrow--on-dark">{% if is_proposal %}Proposed {% endif %}{{ p.network_type }}</p>
     <h1 id="hero-title" class="hero__title">
       <span class="hero__acronym">{{ p.acronym }}</span>
       <span class="hero__name">{{ p.full_name }}</span>
     </h1>
-    <p class="hero__lead">{{ p.tagline }}</p>
+    <p class="hero__lead">{% if is_proposal %}{{ p.proposal_tagline }}{% else %}{{ p.tagline }}{% endif %}</p>
     <div class="hero__actions">
       <a class="button button--light" href="{{ '/about/' | relative_url }}">Discover the project</a>
       <a class="button button--ghost" href="{{ '/vacancies/' | relative_url }}">PhD positions {% include icon.html name="arrow" %}</a>
     </div>
+    {%- if is_proposal %}
+    <p class="hero__status">{% include icon.html name="doc" %}<span>{{ p.proposal_label }}</span></p>
+    {%- else %}
     <p class="hero__eu">
       <img src="{{ '/assets/images/eu/funded-by-the-eu-pos.png' | relative_url }}" width="1000" height="223" alt="Funded by the European Union">
     </p>
+    {%- endif %}
     </div>
 
     {%- if hm.video %}
@@ -109,9 +114,9 @@ title: Home
     <div class="cta-banner">
       <div>
         <h2 id="hiring-title" class="cta-banner__title">
-          {%- if r.status == "open" -%}We are hiring!{%- elsif r.status == "closed" -%}Recruitment is closed{%- else -%}PhD positions coming soon{%- endif -%}
+          {%- if is_proposal -%}PhD positions, subject to funding{%- elsif r.status == "open" -%}We are hiring!{%- elsif r.status == "closed" -%}Recruitment is closed{%- else -%}PhD positions coming soon{%- endif -%}
         </h2>
-        <p>{{ r.headline }}</p>
+        <p>{% if is_proposal %}If the project is funded, doctoral candidate positions will be advertised here.{% else %}{{ r.headline }}{% endif %}</p>
       </div>
       <a class="button button--light" href="{{ '/vacancies/' | relative_url }}">Vacancies &amp; eligibility</a>
     </div>

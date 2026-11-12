@@ -8,6 +8,18 @@ full_name: Advanced Ultra-precise Robotic Inner-ear Surgery
 network_type: Marie Skłodowska-Curie Actions (MSCA) Doctoral Network
 programme: Horizon Europe — Marie Skłodowska-Curie Actions
 
+# Project stage, used on the home page:
+#   proposal: under submission, not funded yet (no EU emblem in the hero,
+#             "subject to funding" wording)
+#   funded:   grant signed (EU emblem and funded wording)
+status: proposal
+proposal_label: "Proposal under submission — Horizon Europe, MSCA Doctoral Networks"
+
+# Home-page pitch while the project is a proposal.
+proposal_tagline: >-
+  A proposed European doctoral network to train the next generation of
+  researchers in robot-assisted inner-ear surgery.
+
 # One-sentence pitch used in the hero and in the footer.
 tagline: >-
   A European doctoral network training the next generation of researchers in

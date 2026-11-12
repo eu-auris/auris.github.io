@@ -2,14 +2,21 @@
 layout: page
 title: Vacancies
 permalink: /vacancies/
-lead: AURIS recruits doctoral candidates (DCs) under the rules of the Marie Skłodowska-Curie Actions. Read the eligibility criteria before you apply.
+lead: AURIS doctoral candidate (DC) positions follow the rules of the Marie Skłodowska-Curie Actions. Read the eligibility criteria before you apply.
 ---
+{%- assign p = site.data.project -%}
 {%- assign r = site.data.recruitment -%}
 {%- assign open_dcs = site.data.doctoral_candidates | where: "status", "open" -%}
 {%- assign upcoming_dcs = site.data.doctoral_candidates | where: "status", "upcoming" -%}
 
 <section class="section" aria-labelledby="status-title">
   <div class="container">
+    {%- if p.status == "proposal" %}
+    <div class="status-banner status-banner--upcoming" role="status">
+      <h2 id="status-title" class="status-banner__title">Positions subject to funding</h2>
+      <p>{{ p.acronym }} is a proposal under submission to the MSCA Doctoral Networks call. If the project is funded,
+        doctoral candidate positions will be advertised on this page.</p>
+    {%- else %}
     <div class="status-banner status-banner--{{ r.status }}" role="status">
       <h2 id="status-title" class="status-banner__title">
         {%- case r.status -%}
@@ -20,6 +27,7 @@ lead: AURIS recruits doctoral candidates (DCs) under the rules of the Marie Skł
       </h2>
       <p>{{ r.headline }}</p>
       <p><span class="meta-label">Deadline:</span> {% include v.html value=r.deadline %}</p>
+    {%- endif %}
       <p class="status-banner__actions">
         {%- if r.status == "open" and r.application_url != "" %}
         <a class="button" href="{{ r.application_url }}" rel="noopener">Apply now {% include icon.html name="arrow" %}</a>
@@ -65,7 +73,7 @@ lead: AURIS recruits doctoral candidates (DCs) under the rules of the Marie Skł
         <li>{% include icon.html name="check" %}<span><strong>Be eligible to enrol in a doctoral programme</strong> at the PhD-awarding institution of the position.</span></li>
         <li>{% include icon.html name="check" %}<span>Applicants of <strong>any nationality</strong> may apply.</span></li>
       </ul>
-      <p class="small">The applicable rules are those of the MSCA Doctoral Networks call under which AURIS is funded. See the
+      <p class="small">The applicable rules are those of the MSCA Doctoral Networks call under which AURIS {% if p.status == "proposal" %}has been submitted{% else %}is funded{% endif %}. See the
         <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks" rel="noopener">official MSCA Doctoral Networks page</a>.
         <span class="todo">TODO: add position-specific requirements (degree, skills, language).</span></p>
     </div>

@@ -26,6 +26,12 @@ sitemap: true
       run the recruitment procedure, in accordance with the General Data Protection Regulation (GDPR).
       <span class="todo">TODO: name the data controller and the data-protection contact for applications.</span></p>
 
+    {%- if p.status == "proposal" %}
+    <h2>EU funding</h2>
+    <p>{{ p.acronym }} is a proposal under submission to the Horizon Europe Marie Skłodowska-Curie Actions Doctoral
+      Networks call. It has not received EU funding at this stage, and this website therefore does not display the
+      EU emblem.</p>
+    {%- else %}
     <h2>EU funding disclaimer</h2>
     <p>Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not
       necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the
@@ -34,5 +40,6 @@ sitemap: true
     <h2>Images</h2>
     <p>The “Funded by the European Union” emblem is reproduced from the European Commission’s official download centre
       and is used in accordance with the rules on the use of the EU emblem.</p>
+    {%- endif %}
   </div>
 </section>
